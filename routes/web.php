@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/vote', function () {
-    return view('test');
+Route::get('/vote/login', function () {
+    return view('login');
+});
+
+Route::post('/vote/login', function (Request $request) {
+    $request->validate([
+        'password' => 'required',
+    ]);
+    return $request;
 });
