@@ -9,8 +9,12 @@ use App\User;
 
 class VoteController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->only(['index']);
+    }
+
     public function index(){
-        dd(Auth::user());
+        return 'asdasdsa';
     }
 
     public function showLogin(){
@@ -30,4 +34,5 @@ class VoteController extends Controller
             return redirect('/vote/login')->with('status', 'Uniquecode not found or already used');
         }
     }
+
 }

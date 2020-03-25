@@ -15,7 +15,9 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/vote/login', function () {
+    return view('vote.login');
+})->name('login');
 
-Route::get('/vote/login', 'VoteController@showLogin');
 Route::post('/vote/login', 'VoteController@login');
 Route::get('/vote/dashboard', 'VoteController@index');
