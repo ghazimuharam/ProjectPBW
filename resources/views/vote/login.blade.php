@@ -16,9 +16,14 @@
 
                 <form class="login100-form validate-form" action="{{ url('/vote/login') }}" method="post">
                     @csrf
+                    @if (session('status'))
+                        <div class="alert alert-danger">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "UniqueCode is required">
 						<span class="label-input100">UniqueCode</span>
-                        <input class="input100" type="password" name="password" placeholder="Enter password" autofocus>
+                        <input class="input100" type="password" name="uniquecode" placeholder="Enter uniquecode" autofocus>
 						<span class="focus-input100"></span>
 					</div>
 					<div class="container-login100-form-btn">

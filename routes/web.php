@@ -16,13 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/vote/login', function () {
-    return view('login');
-});
-
-Route::post('/vote/login', function (Request $request) {
-    $request->validate([
-        'password' => 'required',
-    ]);
-    return $request;
-});
+Route::get('/vote/login', 'VoteController@showLogin');
+Route::post('/vote/login', 'VoteController@login');
+Route::get('/vote/dashboard', 'VoteController@index');
