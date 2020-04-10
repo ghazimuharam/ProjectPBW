@@ -21,3 +21,7 @@ Route::get('/vote/login', function () {
 
 Route::post('/vote/login', 'VoteController@login');
 Route::get('/vote/dashboard', 'VoteController@index');
+
+Route::get('/test', function(){
+    return view('admin.login');
+});
