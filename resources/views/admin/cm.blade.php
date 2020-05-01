@@ -24,61 +24,61 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #061C30;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-text mx-3">Vilection</div>
-            </a>
-    
+            <h3 class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Vilection</div>
+            </h3>
+
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-    
+
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.blade.php">
+                    <a class="nav-link" href="/admin/dashboard">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
-        
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="um.blade.php">
+                    <a class="nav-link" href="/admin/userManagement">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>User Management</span></a>
                 </li>
-        
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="cm.blade.php">
+                    <a class="nav-link" href="/admin/candidateManagement">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Candidate Management</span></a>
                 </li>
-        
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="wm.blade.php">
+                    <a class="nav-link" href="/admin/websiteManagement">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Website Management</span></a>
                 </li>
-    
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
         <!-- End of Sidebar -->
-  
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-    
+
             <!-- Main Content -->
             <div id="content">
-    
+
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background-color: #061C30;">
-        
+
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                     </button>
-        
+
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form action="/admin/candidateManagement/cari" method="get" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input type="text" name="cari" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
                             <i class="fas fa-search fa-sm"></i>
@@ -86,10 +86,10 @@
                         </div>
                     </div>
                     </form>
-        
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-        
+
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,7 +109,7 @@
                         </form>
                         </div>
                     </li>
-        
+
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -158,7 +158,7 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                         </div>
                     </li>
-        
+
                     <!-- Nav Item - Messages -->
                     <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -214,9 +214,9 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                         </div>
                     </li>
-        
+
                     <div class="topbar-divider d-none d-sm-block"></div>
-        
+
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -263,29 +263,38 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
                                 <div class="card-body">
+                                    <a href="/admin/candidateManagement" class="btn btn-primary col-xl-2">Show All</a>
                                     <div class="d-flex justify-content-end">
-                                        <button class="p-1 col-xl-2 bg-info">Export to Excel</button>
-                                        <button class="p-1 col-xl-2 bg-info">Add New User</button>
+                                        <a class="btn p-1 col-xl-2 btn-secondary" href="">Export to Excel</a>
+                                        <a class="btn p-1 col-xl-2 btn-info" href="/admin/addCandidate">Add New Candidate</a>
                                     </div>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered mt-3" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
+                                        <table class="table mt-3" id="dataTable">
+                                            <thead class="thead-dark text-center">
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Name</th>
                                                     <th>Date Created</th>
                                                     <th>Image</th>
-                                                    <th>BIO</th>
+                                                    <th>Bio</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Syahril</td>
-                                                    <td>12-8-2020</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                <?php $i = 1; ?>
+                                                @foreach ($data as $d)
+                                                    <tr>
+                                                        <td class="text-center">{{ $i++ }}</td>
+                                                        <td>{{ $d -> nama }}</td>
+                                                        <td>{{ $d -> created_at }}</td>
+                                                        <td class="text-center"><img src="{{ url('assets/img/'. $d -> foto) }}" width="120"></td>
+                                                        <td>{{ $d -> bio }}</td>
+                                                        <td class="text-center">
+                                                            <a href="/admin/candidateManagement/ubahCandidate/{{ $d -> id }}" class="btn btn-warning">Change</a>
+                                                            <a href="/admin/candidateManagement/hapusCandidate/{{ $d -> id }}" class="btn btn-danger">Remove</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

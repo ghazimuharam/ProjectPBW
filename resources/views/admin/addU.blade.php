@@ -24,57 +24,57 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #061C30;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-text mx-3">Vilection</div>
-            </a>
-    
+            <h3 class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Vilection</div>
+            </h3>
+
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-    
+
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.blade.php">
+                    <a class="nav-link" href="/admin/dashboard">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
-        
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="um.blade.php">
+                    <a class="nav-link" href="/admin/userManagement">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>User Management</span></a>
                 </li>
-        
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="cm.blade.php">
+                    <a class="nav-link" href="/admin/candidateManagement">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Candidate Management</span></a>
                 </li>
-        
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="wm.blade.php">
+                    <a class="nav-link" href="/admin/websiteManagement">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Website Management</span></a>
                 </li>
-    
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
         <!-- End of Sidebar -->
-  
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-    
+
             <!-- Main Content -->
             <div id="content">
-    
+
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background-color: #061C30;">
-        
+
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                     </button>
-        
+
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
@@ -86,10 +86,10 @@
                         </div>
                     </div>
                     </form>
-        
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-        
+
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,7 +109,7 @@
                         </form>
                         </div>
                     </li>
-        
+
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -158,7 +158,7 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                         </div>
                     </li>
-        
+
                     <!-- Nav Item - Messages -->
                     <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -214,9 +214,9 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                         </div>
                     </li>
-        
+
                     <div class="topbar-divider d-none d-sm-block"></div>
-        
+
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -263,23 +263,39 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <table cellpadding ="12">
-                                        <tr>
-                                            <td>Name</td>
-                                            <td><input type="text"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Role</td>
-                                            <td><input type="text"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Status</td>
-                                            <td><input type="text"></td>
-                                        </tr>
-                                    </table>
-                                    <div class="text-center d-none d-md-inline"><br><br>
-                                        <button class="bg-primary col-xl-1" id="sidebarToggle">ADD</button>
-                                    </div>
+                                    <form action="/admin/userManagement/tambah" method="post">
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="nama" class="form-control">
+                                            @if($errors->has('nama'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('nama')}}
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Role</label>
+                                            <input type="text" name="role" class="form-control">
+                                            @if($errors->has('role'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('role')}}
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <input type="text" name="status" class="form-control">
+                                            @if($errors->has('status'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('status')}}
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="text-center d-none d-md-inline"><br><br>
+                                            <button type="submit" class="btn btn-primary col-xl-2">ADD</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
