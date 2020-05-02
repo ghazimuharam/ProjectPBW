@@ -49,3 +49,7 @@ Route::get('admin/addUser', function(){
 Route::get('admin/addCandidate', function(){
     return view('admin.addC');
 });
+
+Route::get('/vote/voting', function(){
+     return view('vote.voting');
+});
