@@ -11,7 +11,7 @@ use App\User;
 class VoteController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth')->only(['']);
+        $this->middleware('auth')->only(['index']);
     }
 
     public function index(){

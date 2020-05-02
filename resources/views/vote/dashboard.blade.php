@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
 
     <title>Portal Pemilihan</title>
@@ -28,23 +27,29 @@
         Selamat datang di halaman pemilihan, gunakan hak pilih Anda dengan bijak.
       </div>
      </div>
-
-  @foreach($candidate as $c)
+   </section>
+  
+   <section id="candidates">
      <div class="container text-center">
       <div class="row justify-content-center">
+      @foreach($candidate as $c)
         <div class="col-md-4 pb-4">
           <div class="card">
-            <img class="card-img-top" src="{{ asset('assets\images\default-profile-pic.png') }}" alt="Card image cap">
+            <img class="card-img-top " name="foto" src="@if($c->foto == null) {{ asset('assets\images\default-profile-pic.png') }}
+                          @else {{ $c->foto }} @endif" alt=" {{ $c->nama}}'s picture">
             <div class="card-body">
-              <h5 class="card-title" name="nama" id="nama"> {{ $c->nama }} </h5>
+              <h5 class="card-title" name="nama" id="nama"> {{ $c->nama }}</h5>
               <p class="card-text" name="bio">{{ $c->bio }}</p>
               <a href="#" class="btn btn-primary">Vote me!</a>
             </div>
           </div>
         </div>
+      @endforeach
+        
       </div>
     </div>
-    @endforeach 
+   </section>
+
   </body>
 </html>
 
