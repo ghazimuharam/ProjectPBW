@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use App\Candidatem;
 
 class candidateController extends Controller
@@ -37,22 +38,28 @@ class candidateController extends Controller
     }
 
     public function submitCandidateM($id, Request $request) {
+        $data = candidatem::find($id);
+        file::delete(public_path(). '/assets/img/'. $data -> foto);
         $this->validate($request,[
             'nama' => 'required',
-            'foto' => 'required',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:1000000',
     		'bio' => 'required'
-         ]);
-
-         $data = candidatem::find($id);
-         $data->nama = $request->nama;
-         $data->foto = $request->foto;
-         $data->bio = $request->bio;
-         $data->save();
-         return redirect('/admin/candidateManagement');
+        ]);
+        $foto = $request -> file('foto');
+        $nama_foto = $foto -> getClientOriginalName();
+        $tujuan_upload = 'assets/img';
+        $foto -> move($tujuan_upload, $nama_foto);
+        $data = candidatem::find($id);
+        $data->nama = $request->nama;
+        $data->foto = $nama_foto;
+        $data->bio = $request->bio;
+        $data->save();
+        return redirect('/admin/candidateManagement');
     }
 
     public function hapusCandidateM($id) {
         $data = candidatem::find($id);
+        file::delete(public_path(). '/assets/img/'. $data -> foto);
         $data->delete();
         return redirect('/admin/candidateManagement');
     }

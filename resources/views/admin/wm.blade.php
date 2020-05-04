@@ -254,15 +254,15 @@
                                     <table cellpadding ="12">
                                         <tr>
                                             <td>Site Title</td>
-                                            <td><input type="text"></td>
+                                            <td><input type="text" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td>Tag Line</td>
-                                            <td><input type="text"></td>
+                                            <td><input type="text" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td>Time Zone</td>
-                                            <td><input type="text"></td>
+                                            <td><input type="text" class="form-control"></td>
                                         </tr>
                                     </table>
                                     <div class="text-center d-none d-md-inline"><br><br>

@@ -21,6 +21,10 @@ Route::post('/vote/login', 'VoteController@login')->name('login');
 Route::get('/vote/dashboard', 'VoteController@index');
 Route::get('/vote/logout', 'VoteController@destroy');
 
+Route::get('/admin/login', function () {
+    return view('admin.login');
+});
+
 Route::get('admin/dashboard', function(){
     return view('admin.dashboard');
 });

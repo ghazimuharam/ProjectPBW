@@ -263,13 +263,13 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <form action="/admin/candidateManagement/update/{{ $data -> id }}" method="post">
+                                    <form action="/admin/candidateManagement/update/{{ $data -> id }}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
 
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="nama" class="form-control">
+                                            <input type="text" name="nama" class="form-control" placeholder="{{ $data -> nama }}">
                                             @if($errors->has('nama'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('nama')}}
@@ -287,7 +287,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Bio</label>
-                                            <input type="text" name="bio" class="form-control">
+                                            <input type="text" name="bio" class="form-control" placeholder="{{ $data -> bio }}">
                                             @if($errors->has('bio'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('bio')}}
@@ -295,7 +295,7 @@
                                             @endif
                                         </div>
                                         <div class="text-center d-none d-md-inline"><br><br>
-                                            <button type="submit" class="btn btn-primary col-xl-2">CHANCE</button>
+                                            <button type="submit" class="btn btn-primary col-xl-2">CHANGE</button>
                                         </div>
                                     </form>
                                 </div>
