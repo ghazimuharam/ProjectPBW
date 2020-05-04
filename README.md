@@ -11,6 +11,10 @@ Navigate to the directory
 ```console
 foo@bar:~$ cd ProjectPBW
 ```
+Run Composer install
+```console
+foo@bar:~/ProjectPBW$ composer install
+```
 Create new .env file with example .env.example
 ```console
 foo@bar:~$ cp .env.example .env
