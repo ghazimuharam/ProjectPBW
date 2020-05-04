@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidatem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,8 @@ class VoteController extends Controller
     }
 
     public function index(){
-        return 'asdasdsa';
+        $candidate = Candidatem::all();
+        return view('vote.dashboard', compact('candidate'));
     }
 
     public function showLogin(){
@@ -33,6 +35,10 @@ class VoteController extends Controller
         }else{
             return redirect('/vote/login')->with('status', 'Uniquecode not found or already used');
         }
+    }
+
+    public function create($id){
+      
     }
 
 }
