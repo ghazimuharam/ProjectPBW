@@ -267,19 +267,19 @@
                                         {{ csrf_field() }}
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="nama" class="form-control">
-                                            @if($errors->has('nama'))
+                                            <input type="text" name="name" class="form-control">
+                                            @if($errors->has('name'))
                                                 <div class="text-danger">
-                                                    {{ $errors->first('nama')}}
+                                                    {{ $errors->first('name')}}
                                                 </div>
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Role</label>
-                                            <input type="text" name="role" class="form-control">
-                                            @if($errors->has('role'))
+                                            <label>Uniquecode</label>
+                                            <input type="text" name="uniquecode" class="form-control">
+                                            @if($errors->has('uniquecode'))
                                                 <div class="text-danger">
-                                                    {{ $errors->first('role')}}
+                                                    {{ $errors->first('uniquecode')}}
                                                 </div>
                                             @endif
                                         </div>
