@@ -30,7 +30,7 @@ class VoteController extends Controller
 
         $user = User::where('uniquecode',$request->uniquecode)
                     ->where('status','active')->first();
-        if($user != null && $user->count() == 1 && Auth::loginUsingId($user->id)){
+        if($user != null && Auth::loginUsingId($user->id)){
             return redirect()->intended('/vote/dashboard');
         }else{
             return redirect('/vote/login')->with('status', 'Uniquecode not found or already used');
@@ -38,7 +38,11 @@ class VoteController extends Controller
     }
 
     public function create($id){
-      
+
     }
 
+    public function destroy(){
+        Auth::logout();
+        return redirect(route('login'));
+    }
 }
