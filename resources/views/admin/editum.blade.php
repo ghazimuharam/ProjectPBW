@@ -269,7 +269,7 @@
 
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="nama" class="form-control">
+                                            <input type="text" name="nama" class="form-control" placeholder="{{ $data -> nama }}">
                                             @if($errors->has('nama'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('nama')}}
@@ -278,7 +278,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Role</label>
-                                            <input type="text" name="role" class="form-control">
+                                            <input type="text" name="role" class="form-control" placeholder="{{ $data -> role }}">
                                             @if($errors->has('role'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('role')}}
@@ -287,7 +287,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <input type="text" name="status" class="form-control">
+                                            <input type="text" name="status" class="form-control" placeholder="{{ $data -> status }}">
                                             @if($errors->has('status'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('status')}}
@@ -295,7 +295,7 @@
                                             @endif
                                         </div>
                                         <div class="text-center d-none d-md-inline"><br><br>
-                                            <button type="submit" class="btn btn-primary col-xl-2">CHANCE</button>
+                                            <button type="submit" class="btn btn-primary col-xl-2">CHANGE</button>
                                         </div>
                                     </form>
                                 </div>

@@ -15,12 +15,20 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/vote/login', function () {
     return view('vote.login');
 })->name('login');
+Route::get('/admin/login', function () {
+    return view('admin.login');
+});
 
 Route::post('/vote/login', 'VoteController@login');
 Route::get('/vote/dashboard', 'VoteController@index');
+
+Route::get('vote/vote', function () {
+    return view('vote.voting');
+});
 
 Route::get('admin/dashboard', function(){
     return view('admin.dashboard');
