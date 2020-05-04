@@ -18,6 +18,7 @@ class CreateCandidatemsTable extends Migration
             $table -> string('nama');
             $table -> string('foto');
             $table -> text('bio');
+            $table -> integer('total_vote');
             $table->timestamps();
         });
     }

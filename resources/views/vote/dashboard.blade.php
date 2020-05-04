@@ -36,11 +36,11 @@
         <div class="col-md-4 pb-4">
           <div class="card">
             <img class="card-img-top " name="foto" src="@if($c->foto == null) {{ asset('assets\images\default-profile-pic.png') }}
-                          @else {{ $c->foto }} @endif" alt=" {{ $c->nama}}'s picture">
+                          @else {{ asset('assets/img/') }}/{{ $c->foto }} @endif" alt=" {{ $c->nama}}'s picture">
             <div class="card-body">
               <h5 class="card-title" name="nama" id="nama"> {{ $c->nama }}</h5>
               <p class="card-text" name="bio">{{ $c->bio }}</p>
-              <a href="#" class="btn btn-primary">Vote me!</a>
+              <a href="{{ route('vote', $c->id) }}" class="btn btn-primary">Vote me!</a>
             </div>
           </div>
         </div>

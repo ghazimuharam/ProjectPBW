@@ -21,6 +21,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "UniqueCode is required">
 						<span class="label-input100">UniqueCode</span>
                         <input class="input100" type="password" name="uniquecode" placeholder="Enter uniquecode" autofocus>

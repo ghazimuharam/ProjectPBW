@@ -19,29 +19,26 @@ Route::get('/', function () {
 Route::get('/vote/login', 'VoteController@showLogin')->name('login');
 Route::post('/vote/login', 'VoteController@login')->name('login');
 Route::get('/vote/dashboard', 'VoteController@index');
+Route::get('/vote/vote/{id}', 'VoteController@useVote')->name('vote');
 Route::get('/vote/logout', 'VoteController@destroy');
-
-Route::get('/admin/login', function () {
-    return view('admin.login');
+Route::get('/vote/voting', function(){
+    return view('vote.voting');
 });
 
-Route::get('admin/dashboard', function(){
-    return view('admin.dashboard');
-});
 
-Route::get('admin/userManagement', 'userController@userM');
-Route::post('admin/userManagement/tambah', 'userController@tambahUserM');
-Route::get('admin/userManagement/ubahUser/{id}', 'userController@ubahUserM');
-Route::put('admin/userManagement/update/{id}', 'userController@submitUserM');
-Route::get('admin/userManagement/hapusUser/{id}', 'userController@hapusUserM');
-Route::get('admin/userManagement/cari', 'userController@cari');
+Route::get('admin/userManagement', 'UserController@userM');
+Route::post('admin/userManagement/tambah', 'UserController@tambahUserM');
+Route::get('admin/userManagement/ubahUser/{id}', 'UserController@ubahUserM');
+Route::put('admin/userManagement/update/{id}', 'UserController@submitUserM');
+Route::get('admin/userManagement/hapusUser/{id}', 'UserController@hapusUserM');
+Route::get('admin/userManagement/cari', 'UserController@cari');
 
-Route::get('admin/candidateManagement', 'candidateController@candidateM');
-Route::post('admin/candidateManagement/tambah', 'candidateController@tambahCandidateM');
-Route::get('admin/candidateManagement/ubahCandidate/{id}', 'candidateController@ubahCandidateM');
-Route::put('admin/candidateManagement/update/{id}', 'candidateController@submitCandidateM');
-Route::get('admin/candidateManagement/hapusCandidate/{id}', 'candidateController@hapusCandidateM');
-Route::get('admin/candidateManagement/cari', 'candidateController@cari');
+Route::get('admin/candidateManagement', 'CandidateController@candidateM');
+Route::post('admin/candidateManagement/tambah', 'CandidateController@tambahCandidateM');
+Route::get('admin/candidateManagement/ubahCandidate/{id}', 'CandidateController@ubahCandidateM');
+Route::put('admin/candidateManagement/update/{id}', 'CandidateController@submitCandidateM');
+Route::get('admin/candidateManagement/hapusCandidate/{id}', 'CandidateController@hapusCandidateM');
+Route::get('admin/candidateManagement/cari', 'CandidateController@cari');
 
 Route::get('admin/websiteManagement', function(){
     return view('admin.wm');
@@ -53,6 +50,7 @@ Route::get('admin/addCandidate', function(){
     return view('admin.addC');
 });
 
-Route::get('/vote/voting', function(){
-     return view('vote.voting');
-});
+Route::get('/admin/login', 'AdminController@index')->name('adminlogin');
+Route::post('/admin/login', 'AdminController@login')->name('adminlogin');
+Route::get('admin/dashboard', 'AdminController@dashboard')->name('admindashboard');
+Route::get('admin/logout', 'AdminController@destroy')->name('adminlogout');

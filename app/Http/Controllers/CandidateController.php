@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Candidatem;
 
-class candidateController extends Controller
+class CandidateController extends Controller
 {
     public function candidateM() {
         $data = candidatem::all();
@@ -27,7 +27,8 @@ class candidateController extends Controller
         candidatem::create([
             'nama' => $request -> nama,
     		'foto' => $nama_foto,
-    		'bio' => $request -> bio
+            'bio' => $request -> bio,
+            'total_vote' => 0,
         ]);
         return redirect('/admin/candidateManagement');
     }

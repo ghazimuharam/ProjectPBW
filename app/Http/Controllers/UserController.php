@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 
-class userController extends Controller
+class UserController extends Controller
 {
     public function userM() {
         $data = User::all();
