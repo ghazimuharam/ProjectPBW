@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-class UserSeeder extends Seeder
+
+class CandidateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,12 +13,17 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
+
         for($i = 1; $i <=10; $i++){
-            DB::table('users')->insert([
-                'name' => $faker->name,
-                'uniquecode' => Str::random(5),
-                'status' => 'active',
-            ]);
+
+            DB::table('candidatems')->insert([
+                'nama' => $faker->name,
+                'foto' => '',
+                'bio' => $faker->address,
+                'total_vote' => '0',
+            
+            ]);  
+
         }
     }
 }

@@ -44,6 +44,7 @@ class VoteController extends Controller
         $user->update(
             ['status' => 'deactive']
         );
+        Auth::logout();
         return redirect(route('login'))->with('message', 'Pemilihan Berhasil');
     }
 
