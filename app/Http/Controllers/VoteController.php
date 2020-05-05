@@ -36,16 +36,19 @@ class VoteController extends Controller
     }
 
     public function useVote($id){
-        $candidate = Candidatem::findorfail($id);
-        $candidate->update(
-            ['total_vote' => $candidate->total_vote + 1]
-        );
         $user = Auth::user();
-        $user->update(
-            ['status' => 'deactive']
-        );
-        Auth::logout();
-        return redirect(route('login'))->with('message', 'Pemilihan Berhasil');
+        if($user->status == 'active'){
+          $candidate = Candidatem::findorfail($id);
+          $candidate->update(
+              ['total_vote' => $candidate->total_vote + 1]
+          );
+          $user->update(
+              ['status' => 'deactive']
+          );
+          return redirect(route('login'))->with('message', 'Pemilihan Berhasil');
+        }else{
+          return redirect('/vote/login')->with('status', 'You dont meet the requirements to vote'); 
+        }
     }
 
     public function destroy(){
