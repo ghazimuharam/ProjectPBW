@@ -20,7 +20,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="d-flex justify-content-end">
-                                        <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="">Export to Excel</a>
+                                        <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="/admin/userManagement/export_excel">Export to Excel</a>
                                         <a class="btn p-1 col-xl-2 btn-info" href="/admin/addUser">Make UniqueCodes</a>
                                     </div>
                                     <div class="table-responsive">
