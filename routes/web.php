@@ -56,3 +56,6 @@ Route::get('/admin/login', 'AdminController@index')->name('adminlogin');
 Route::post('/admin/login', 'AdminController@login')->name('adminlogin');
 Route::get('admin/dashboard', 'AdminController@dashboard')->name('admindashboard');
 Route::get('admin/logout', 'AdminController@destroy')->name('adminlogout');
+
+Route::get('/admin/profile', 'AdminController@profile');
+Route::post('/admin/profile', 'AdminController@edit');
