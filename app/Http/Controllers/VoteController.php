@@ -45,7 +45,7 @@ class VoteController extends Controller
           $user->update(
               ['status' => 'deactive']
           );
-          return redirect(route('login'))->with('message', 'Pemilihan Berhasil');
+          return redirect(route('login'))->with('message', 'Successful Selection');
         }else{
           return redirect('/vote/login')->with('status', 'You dont meet the requirements to vote');
         }

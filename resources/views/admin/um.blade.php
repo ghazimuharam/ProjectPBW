@@ -19,9 +19,23 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-end">
-                                        <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="/admin/userManagement/export_excel">Export to Excel</a>
-                                        <a class="btn p-1 col-xl-2 btn-info" href="/admin/addUser">Make UniqueCodes</a>
+                                    <div class="row">
+                                        <!-- Topbar Search -->
+                                        <form action="{{ url('/admin/userManagement/cari') }}" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                            <div class="input-group">
+                                                @csrf
+                                                <input type="text" name="cari" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <i class="fas fa-search fa-sm"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="d-flex col-lg-8 justify-content-end">
+                                            <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="/admin/userManagement/export_excel">Export to Excel</a>
+                                            <a class="btn p-1 col-xl-2 btn-info" href="/admin/addUser">Make UniqueCodes</a>
+                                        </div>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table mt-3" id="dataTable">
