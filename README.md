@@ -25,6 +25,7 @@ foo@bar:~$ php artisan key:generate
 ```
 Run migration and db Seed
 ```console
+foo@bar:~$ composer dump-autoload
 foo@bar:~$ php artisan migrate
 foo@bar:~$ php artisan db:seed --class=AdminSeeder
 ```
