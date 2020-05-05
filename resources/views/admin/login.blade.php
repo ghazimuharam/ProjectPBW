@@ -10,6 +10,7 @@
     <div class="login-page">
         <div class="form">
           <h3>Admin Login</h3>
+<<<<<<< HEAD
           <form class="register-form">
             <input type="text" placeholder="name"/>
             <input type="password" placeholder="password"/>
@@ -21,6 +22,18 @@
             <input type="text" placeholder="Username"/>
             <input type="password" placeholder="Password"/>
             <button>login</button>
+=======
+          <form class="login-form" method="POST" action="{{ route('adminlogin') }}">
+            @csrf
+            <input type="text" name="username" placeholder="Username"/>
+            <input type="password" name="password" placeholder="Password"/>
+            @if(session('message'))
+                <p>
+                    {{ session('message') }}
+                </p>
+            @endif
+            <button type="submit">login</button>
+>>>>>>> parent of 9a84b1f... Add Seeders, modify login view, update VoteController
           </form>
         </div>
       </div>

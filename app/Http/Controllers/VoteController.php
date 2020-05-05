@@ -37,8 +37,21 @@ class VoteController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function create($id){
       
+=======
+    public function useVote($id){
+        $candidate = Candidatem::findorfail($id);
+        $candidate->update(
+            ['total_vote' => $candidate->total_vote + 1]
+        );
+        $user = Auth::user();
+        $user->update(
+            ['status' => 'deactive']
+        );
+        return redirect(route('login'))->with('message', 'Pemilihan Berhasil');
+>>>>>>> parent of 9a84b1f... Add Seeders, modify login view, update VoteController
     }
 
 }
