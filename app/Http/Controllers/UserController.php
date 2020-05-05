@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 use App\User;
 
 class UserController extends Controller
@@ -61,5 +64,14 @@ class UserController extends Controller
         $name = $data -> cari;
         $data = DB::table('users') -> where('name', 'like', "%".$name."%") -> get();
         return view('admin.um', ['data' => $data]);
+    }
+
+    public function export() {
+        $data = User::all();
+		return view('admin.um',['data' => $data]);
+    }
+
+    public function export_excel() {
+        return Excel::download(new UserExport, 'User.xlsx');
     }
 }

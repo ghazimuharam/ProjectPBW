@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use App\Exports\CandidateExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 use App\Candidatem;
 
 class CandidateController extends Controller
@@ -14,7 +17,7 @@ class CandidateController extends Controller
     }
 
     public function candidateM() {
-        $data = candidatem::all();
+        $data = Candidatem::all();
     	return view('admin.cm', ['data' => $data]);
     }
 
@@ -28,7 +31,7 @@ class CandidateController extends Controller
         $nama_foto = $foto -> getClientOriginalName();
         $tujuan_upload = 'assets/img';
         $foto -> move($tujuan_upload, $nama_foto);
-        candidatem::create([
+        Candidatem::create([
             'nama' => $request -> nama,
     		'foto' => $nama_foto,
             'bio' => $request -> bio,
@@ -38,12 +41,12 @@ class CandidateController extends Controller
     }
 
     public function ubahCandidateM($id) {
-        $data = candidatem::find($id);
+        $data = Candidatem::find($id);
         return view('admin.editcm', ['data' => $data]);
     }
 
     public function submitCandidateM($id, Request $request) {
-        $data = candidatem::find($id);
+        $data = Candidatem::find($id);
         file::delete(public_path(). '/assets/img/'. $data -> foto);
         $this->validate($request,[
             'nama' => 'required',
@@ -54,7 +57,7 @@ class CandidateController extends Controller
         $nama_foto = $foto -> getClientOriginalName();
         $tujuan_upload = 'assets/img';
         $foto -> move($tujuan_upload, $nama_foto);
-        $data = candidatem::find($id);
+        $data = Candidatem::find($id);
         $data->nama = $request->nama;
         $data->foto = $nama_foto;
         $data->bio = $request->bio;
@@ -63,7 +66,7 @@ class CandidateController extends Controller
     }
 
     public function hapusCandidateM($id) {
-        $data = candidatem::find($id);
+        $data = Candidatem::find($id);
         file::delete(public_path(). '/assets/img/'. $data -> foto);
         $data->delete();
         return redirect('/admin/candidateManagement');
@@ -73,5 +76,14 @@ class CandidateController extends Controller
         $nama = $data -> cari;
         $data = DB::table('candidatems') -> where('nama', 'like', "%".$nama."%") -> get();
         return view('admin.cm', ['data' => $data]);
+    }
+
+    public function export() {
+        $data = Candidatem::all();
+		return view('admin.cm',['data' => $data]);
+    }
+
+    public function export_excel() {
+        return Excel::download(new CandidateExport, 'Candidate.xlsx');
     }
 }

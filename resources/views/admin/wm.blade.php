@@ -29,8 +29,13 @@
                                                 <td><input type="text" name="tagline" class="form-control" value="{{ $website->tagline }}"></td>
                                             </tr>
                                         </table>
-                                        <div class="text-center d-none d-md-inline"><br><br>
-                                            <button class="btn btn-primary col-xl-2" type="submit" href="">Create</button>
+                                        @if(session('success'))
+                                            <div class="text-success ml-2">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
+                                        <div class="mt-5">
+                                            <button class="btn btn-primary col-xl-2" name="submit" type="submit" href="">Submit</button>
                                         </div>
                                     </div>
                                 </form>
