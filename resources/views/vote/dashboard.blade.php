@@ -31,7 +31,7 @@
    <section id="alert">
      <div class="container p-4">
       <div class="alert alert-secondary text-center" role="alert">
-        Selamat datang di halaman pemilihan, gunakan hak pilih Anda dengan bijak.
+        Welcome to the Vilection! Use your vote wisely.
       </div>
      </div>
    </section>

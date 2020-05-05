@@ -23,8 +23,8 @@
 			</div>
 
 			<div class="split-bio">
-			    <p><a href="{{ url('/vote/login') }}">Masuk Ke Portal Pemilihan</a></p>
-			    <p><a href="{{ url('/admin/login') }}">Masuk Ke Portal Admin</a></p>
+			    <p><a href="{{ url('/vote/login') }}">Enter Election Portal</a></p>
+			    <p><a href="{{ url('/admin/login') }}">Enter Admin Portal</a></p>
             </div>
 
 			<div class="split-credit">

@@ -10,7 +10,7 @@
 
 				<div class="login100-form-title" style="background-image: url({{ asset('assets/images/bg-01.jpg') }});">
 					<span class="login100-form-title-1">
-						Halaman Login Pemilihan
+						Login to Vilection
 					</span>
                 </div>
 
