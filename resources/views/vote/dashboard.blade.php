@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
 
-    <title>Portal Pemilihan</title>
+    <title>Vote Area</title>
     <style>
         .imageClip{
             width:400px;
