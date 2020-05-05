@@ -12,9 +12,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        for($i = 1; $i <=10; $i++){
+        for($i = 1; $i <=5; $i++){
             DB::table('users')->insert([
-                'uniquecode' => Str::random(5),
+                'uniquecode' => Str::random(8),
                 'status' => 'active',
             ]);
         }
