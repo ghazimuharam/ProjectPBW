@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <div class="login-page">
+    <div class="login-page ">
         <div class="form">
           <h3>Admin Login</h3>
           <form class="login-form" method="POST" action="{{ route('adminlogin') }}">
@@ -21,6 +21,7 @@
                 </p>
             @endif
             <button type="submit">login</button>
+            <h5><a href="/">Home</a></h5>
           </form>
         </div>
       </div>

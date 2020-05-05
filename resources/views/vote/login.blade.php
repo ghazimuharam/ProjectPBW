@@ -35,6 +35,7 @@
 						<button class="login100-form-btn">
 							Login
 						</button>
+						<h5><a  class="ml-3 login100-form-btn" href="/">Home</a></h5>
 					</div>
                 </form>
 
