@@ -54,7 +54,7 @@ class UserController extends Controller
 
     public function cari(Request $data) {
         $name = $data -> cari;
-        $data = DB::table('users') -> where('name', 'like', "%".$name."%") -> get();
+        $data = DB::table('users') -> where('uniquecode', 'like', "%".$name."%") -> get();
         return view('admin.um', ['data' => $data]);
     }
 
