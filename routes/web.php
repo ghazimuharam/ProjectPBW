@@ -30,6 +30,8 @@ Route::get('/admin/userManagement/ubahUser/{id}', 'UserController@ubahUserM');
 Route::put('/admin/userManagement/update/{id}', 'UserController@submitUserM');
 Route::get('/admin/userManagement/hapusUser/{id}', 'UserController@hapusUserM');
 Route::get('/admin/userManagement/cari', 'UserController@cari');
+Route::get('/admin/userManagement/export', 'UserController@export');
+Route::get('/admin/userManagement/export_excel', 'UserController@export_excel');
 
 Route::get('/admin/candidateManagement', 'CandidateController@candidateM');
 Route::post('/admin/candidateManagement/tambah', 'CandidateController@tambahCandidateM');
@@ -37,6 +39,8 @@ Route::get('/admin/candidateManagement/ubahCandidate/{id}', 'CandidateController
 Route::put('/admin/candidateManagement/update/{id}', 'CandidateController@submitCandidateM');
 Route::get('/admin/candidateManagement/hapusCandidate/{id}', 'CandidateController@hapusCandidateM');
 Route::get('/admin/candidateManagement/cari', 'CandidateController@cari');
+Route::get('/admin/candidateManagement/export', 'CandidateController@export');
+Route::get('/admin/candidateManagement/export_excel', 'CandidateController@export_excel');
 
 Route::get('/admin/websiteManagement', 'AdminController@webman');
 Route::post('/admin/websiteManagement', 'AdminController@submitwebman');

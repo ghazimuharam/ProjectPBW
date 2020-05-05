@@ -27,7 +27,7 @@
                                             <input type="text" name="name" class="form-control" value="{{ $data -> name }}">
                                             @if($errors->has('name'))
                                                 <div class="text-danger">
-                                                    {{ $errors->first('namr')}}
+                                                    {{ $errors->first('name')}}
                                                 </div>
                                             @endif
                                         </div>

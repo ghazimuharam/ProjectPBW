@@ -121,6 +121,6 @@ class AdminController extends Controller
             'tagline' => $request->tagline,
         ]);
 
-        return redirect('/admin/websiteManagement');
+        return redirect('/admin/websiteManagement')->with('success', 'Edited Successfully');
     }
 }

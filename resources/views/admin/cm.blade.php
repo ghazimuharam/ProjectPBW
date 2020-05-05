@@ -18,9 +18,8 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <a href="/admin/candidateManagement" class="btn btn-primary col-xl-2">Show All</a>
                                     <div class="d-flex justify-content-end">
-                                        <a class="btn p-1 col-xl-2 btn-secondary" href="">Export to Excel</a>
+                                        <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="/admin/candidateManagement/export_excel" target="_blank">Export to Excel</a>
                                         <a class="btn p-1 col-xl-2 btn-info" href="/admin/addCandidate">Add New Candidate</a>
                                     </div>
                                     <div class="table-responsive">
