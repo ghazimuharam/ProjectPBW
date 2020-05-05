@@ -22,18 +22,10 @@
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
 
+                                     
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" name="name" class="form-control" value="{{ $data -> name }}">
-                                            @if($errors->has('name'))
-                                                <div class="text-danger">
-                                                    {{ $errors->first('namr')}}
-                                                </div>
-                                            @endif
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Uniquecode</label>
-                                            <input type="text" name="uniquecode" class="form-control" value="{{ $data -> uniquecode }}">
+                                            <label>Un1iquecode</label>
+                                            <input type="text" name="uniquecode" class="form-control" value="{{ $data -> uniquecode }} ">
                                             @if($errors->has('uniquecode'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('uniquecode')}}

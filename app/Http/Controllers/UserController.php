@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use App\User;
 
 class UserController extends Controller
 {
-    public function __construct(){
-        $this->middleware('admin');
-    }
-
     public function userM() {
         $data = User::all();
     	return view('admin.um', ['data' => $data]);
@@ -19,15 +16,14 @@ class UserController extends Controller
 
     public function tambahUserM(Request $request) {
         $this->validate($request,[
-    		'name' => 'required',
-    		'uniquecode' => 'required',
-    		'status' => 'required'
+            'uniquecode' => ['required','integer','between:1,2000','unique:users']
         ]);
-        User::create([
-            'name' => $request -> name,
-    		'uniquecode' => $request -> uniquecode,
-    		'status' => $request -> status
-        ]);
+        for ($i=0; $i < $request->uniquecode ; $i++){
+            User::create([
+                'uniquecode' => Str::random(8),
+                'status' => 'active'
+            ]);
+        }
         return redirect('/admin/userManagement');
     }
 
@@ -38,14 +34,10 @@ class UserController extends Controller
 
     public function submitUserM($id, Request $request) {
         $this->validate($request,[
-            'name' => 'required',
-            'uniquecode' => 'required',
-    		'status' => 'required'
+            'uniquecode' => ['required','between:1,100']
          ]);
 
          $data = User::find($id);
-         $data->name = $request->name;
-         $data->uniquecode = $request->uniquecode;
          $data->status = $request->status;
          $data->save();
          return redirect('/admin/userManagement');
