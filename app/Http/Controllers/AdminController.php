@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
+use App\Candidatem;
 use App\Website;
 use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
@@ -37,7 +38,10 @@ class AdminController extends Controller
     }
 
     public function dashboard(){
-        return view('admin.dashboard');
+        $label = Candidatem::all()->pluck('nama');
+
+        $vote = Candidatem::all()->pluck('total_vote');
+        return view('admin.dashboard', ['label' => $label, 'vote' => $vote]);
     }
     /**
      * Show the form for creating a new resource.

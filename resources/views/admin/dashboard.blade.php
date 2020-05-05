@@ -18,8 +18,8 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <div class="chart-bar" style="position: relative; height:70vh; width:80vw">
+                                        <canvas id="myBarChart" width="1" height="1"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -29,4 +29,8 @@
             </div>
         </div>
     </div>
+    <script>
+        var labelchart = @json($label);
+        var votechart = @json($vote);
+    </script>
 @endsection
