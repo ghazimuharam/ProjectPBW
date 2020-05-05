@@ -12,9 +12,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WebsiteController@index');
 
 Route::get('/vote/login', 'VoteController@showLogin')->name('login');
 Route::post('/vote/login', 'VoteController@login')->name('login');
@@ -26,23 +24,23 @@ Route::get('/vote/voting', function(){
 });
 
 
-Route::get('admin/userManagement', 'UserController@userM');
-Route::post('admin/userManagement/tambah', 'UserController@tambahUserM');
-Route::get('admin/userManagement/ubahUser/{id}', 'UserController@ubahUserM');
-Route::put('admin/userManagement/update/{id}', 'UserController@submitUserM');
-Route::get('admin/userManagement/hapusUser/{id}', 'UserController@hapusUserM');
-Route::get('admin/userManagement/cari', 'UserController@cari');
+Route::get('/admin/userManagement', 'UserController@userM');
+Route::post('/admin/userManagement/tambah', 'UserController@tambahUserM');
+Route::get('/admin/userManagement/ubahUser/{id}', 'UserController@ubahUserM');
+Route::put('/admin/userManagement/update/{id}', 'UserController@submitUserM');
+Route::get('/admin/userManagement/hapusUser/{id}', 'UserController@hapusUserM');
+Route::get('/admin/userManagement/cari', 'UserController@cari');
 
-Route::get('admin/candidateManagement', 'CandidateController@candidateM');
-Route::post('admin/candidateManagement/tambah', 'CandidateController@tambahCandidateM');
-Route::get('admin/candidateManagement/ubahCandidate/{id}', 'CandidateController@ubahCandidateM');
-Route::put('admin/candidateManagement/update/{id}', 'CandidateController@submitCandidateM');
-Route::get('admin/candidateManagement/hapusCandidate/{id}', 'CandidateController@hapusCandidateM');
-Route::get('admin/candidateManagement/cari', 'CandidateController@cari');
+Route::get('/admin/candidateManagement', 'CandidateController@candidateM');
+Route::post('/admin/candidateManagement/tambah', 'CandidateController@tambahCandidateM');
+Route::get('/admin/candidateManagement/ubahCandidate/{id}', 'CandidateController@ubahCandidateM');
+Route::put('/admin/candidateManagement/update/{id}', 'CandidateController@submitCandidateM');
+Route::get('/admin/candidateManagement/hapusCandidate/{id}', 'CandidateController@hapusCandidateM');
+Route::get('/admin/candidateManagement/cari', 'CandidateController@cari');
 
-Route::get('admin/websiteManagement', function(){
-    return view('admin.wm');
-});
+Route::get('/admin/websiteManagement', 'AdminController@webman');
+Route::post('/admin/websiteManagement', 'AdminController@submitwebman');
+
 Route::get('admin/addUser', function(){
     return view('admin.addU');
 });

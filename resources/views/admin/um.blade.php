@@ -30,8 +30,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Name</th>
-                                                    <th>Date Created</th>
-                                                    <th>Role</th>
+                                                    <th>UniqueCode</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -41,10 +40,9 @@
                                                 @foreach ($data as $d)
                                                     <tr>
                                                         <td class="text-center">{{ $i++ }}</td>
-                                                        <td>{{ $d -> name }}</td>
-                                                        <td>{{ $d -> created_at }}</td>
-                                                        <td>{{ $d -> role }}</td>
-                                                        <td class="text-center">{{ $d -> status }}</td>
+                                                        <td class="text-center">{{ $d->name }}</td>
+                                                        <td class="text-center">{{ $d->uniquecode }}</td>
+                                                        <td class="text-center">{{ $d->status }}</td>
                                                         <td class="text-center">
                                                             <a href="/admin/userManagement/ubahUser/{{ $d -> id }}" class="btn btn-warning">Change</a>
                                                             <a href="/admin/userManagement/hapusUser/{{ $d -> id }}" class="btn btn-danger">Remove</a>

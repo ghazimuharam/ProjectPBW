@@ -8,6 +8,10 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function userM() {
         $data = User::all();
     	return view('admin.um', ['data' => $data]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
+use App\Website;
 use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
@@ -103,5 +104,23 @@ class AdminController extends Controller
     {
         Auth::guard('admin')->logout();
         return redirect(route('adminlogin'));
+    }
+
+    public function webman(){
+        $website = Website::first();
+        return view('admin.wm', ['website' => $website]);
+    }
+
+    public function submitwebman(Request $request){
+        $request->validate([
+            'title' => 'required',
+            'tagline' => 'required',
+        ]);
+        Website::first()->update([
+            'title' => $request->title,
+            'tagline' => $request->tagline,
+        ]);
+
+        return redirect('/admin/websiteManagement');
     }
 }

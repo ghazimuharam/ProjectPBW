@@ -16,21 +16,24 @@
                         <div class="col-xl-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <table cellpadding ="12">
-                                        <tr>
-                                            <td>Site Title</td>
-                                            <td><input type="text" name="title" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tag Line</td>
-                                            <td><input type="text" name="tagline" class="form-control"></td>
-                                        </tr>
-                                    </table>
-                                    <div class="text-center d-none d-md-inline"><br><br>
-                                        <a class="btn btn-primary col-xl-2" href="">Create</a>
+                                <form action="/admin/websiteManagement" method="POST">
+                                    @csrf
+                                    <div class="card-body">
+                                        <table cellpadding ="12">
+                                            <tr>
+                                                <td>Site Title</td>
+                                                <td><input type="text" name="title" class="form-control" value="{{ $website->title }}"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tag Line</td>
+                                                <td><input type="text" name="tagline" class="form-control" value="{{ $website->tagline }}"></td>
+                                            </tr>
+                                        </table>
+                                        <div class="text-center d-none d-md-inline"><br><br>
+                                            <button class="btn btn-primary col-xl-2" type="submit" href="">Create</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

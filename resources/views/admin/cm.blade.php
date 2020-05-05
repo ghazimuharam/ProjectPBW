@@ -40,8 +40,8 @@
                                                 @foreach ($data as $d)
                                                     <tr>
                                                         <td class="text-center">{{ $i++ }}</td>
-                                                        <td>{{ $d -> nama }}</td>
-                                                        <td>{{ $d -> created_at }}</td>
+                                                        <td class="text-center">{{ $d -> nama }}</td>
+                                                        <td class="text-center">{{ $d -> created_at }}</td>
                                                         <td class="text-center"><img src="{{ url('assets/img/'. $d -> foto) }}" width="120"></td>
                                                         <td>{{ $d -> bio }}</td>
                                                         <td class="text-center">

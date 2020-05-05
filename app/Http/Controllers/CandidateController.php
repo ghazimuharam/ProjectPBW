@@ -9,6 +9,10 @@ use App\Candidatem;
 
 class CandidateController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function candidateM() {
         $data = candidatem::all();
     	return view('admin.cm', ['data' => $data]);

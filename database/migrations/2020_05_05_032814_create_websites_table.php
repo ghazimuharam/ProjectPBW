@@ -16,7 +16,8 @@ class CreateWebsitesTable extends Migration
         Schema::create('websites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->default('Vilection');
-            $table->string('tagline')->default('Web Based Election');;
+            $table->string('tagline')->default('Web Based Election');
+            $table->timestamps();
         });
 
         DB::table('websites')->insert(

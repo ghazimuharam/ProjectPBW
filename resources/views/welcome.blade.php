@@ -18,8 +18,8 @@
 	<div class="split-content">
 		<div class="split-content-vertically-center">
 			<div class="split-intro">
-				<h1>VILECTION</h1>
-				<span class="tagline">Web Based Election</span>
+				<h1>{{ $website->title }}</h1>
+				<span class="tagline">{{ $website->tagline }}</span>
 			</div>
 
 			<div class="split-bio">
@@ -28,7 +28,7 @@
             </div>
 
 			<div class="split-credit">
-                <p>&copy;2020 <a href="{{ url('/') }}">Vilection</a></p>
+                <p>&copy;2020 <a href="{{ url('/') }}">{{ $website->title }}</a></p>
             </div>
         </div>
     </div>
