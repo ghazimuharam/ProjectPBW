@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\Candidatem;
@@ -81,9 +82,25 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        
+        $update = Admin::first()->update([
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
+
+        if ($update) {
+            return redirect('admin/profile')->with('notif', 'Data admin updated successfully!');
+        } else {
+            return redirect('admin/profile')->with('error', 'Error!');
+        }
     }
 
     /**
@@ -126,5 +143,12 @@ class AdminController extends Controller
         ]);
 
         return redirect('/admin/websiteManagement')->with('success', 'Edited Successfully');
+    }
+
+    public function profile()
+    {
+        $data = Admin::first();
+
+        return view('admin.profile', ['admin' => $data]);
     }
 }
