@@ -20,15 +20,14 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="d-flex justify-content-end">
-                                        <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="/admin/userManagement/export_excel" target="_blank">Export to Excel</a>
-                                        <a class="btn p-1 col-xl-2 btn-info" href="/admin/addUser">Add New User</a>
+                                        <a class="btn p-1 mr-3 col-xl-2 btn-secondary" href="">Export to Excel</a>
+                                        <a class="btn p-1 col-xl-2 btn-info" href="/admin/addUser">Make UniqueCodes</a>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table mt-3" id="dataTable">
                                             <thead class="thead-dark text-center">
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Name</th>
                                                     <th>UniqueCode</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
@@ -39,7 +38,6 @@
                                                 @foreach ($data as $d)
                                                     <tr>
                                                         <td class="text-center">{{ $i++ }}</td>
-                                                        <td class="text-center">{{ $d->name }}</td>
                                                         <td class="text-center">{{ $d->uniquecode }}</td>
                                                         <td class="text-center">{{ $d->status }}</td>
                                                         <td class="text-center">

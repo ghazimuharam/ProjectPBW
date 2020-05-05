@@ -19,35 +19,19 @@
                                 <div class="card-body">
                                     <form action="/admin/userManagement/tambah" method="post">
                                         {{ csrf_field() }}
+                                       
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" name="name" class="form-control">
-                                            @if($errors->has('name'))
-                                                <div class="text-danger">
-                                                    {{ $errors->first('name')}}
-                                                </div>
-                                            @endif
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Uniquecode</label>
-                                            <input type="text" name="uniquecode" class="form-control">
+                                            <label>How many voters there will be?</label>
+                                            <input type="text" name="uniquecode" class="form-control" placeholder="e.g., 500">
                                             @if($errors->has('uniquecode'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('uniquecode')}}
                                                 </div>
                                             @endif
                                         </div>
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <input type="text" name="status" class="form-control">
-                                            @if($errors->has('status'))
-                                                <div class="text-danger">
-                                                    {{ $errors->first('status')}}
-                                                </div>
-                                            @endif
-                                        </div>
+                                        
                                         <div class="text-center d-none d-md-inline"><br><br>
-                                            <button type="submit" class="btn btn-primary col-xl-2">ADD</button>
+                                            <button type="submit" class="btn btn-primary col-xl-2">Generate</button>
                                         </div>
                                     </form>
                                 </div>
