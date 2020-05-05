@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title','Welcome To Web Based Election')
+@section('title','Login To Vilection')
 
 @section('content')
 <body>
@@ -14,7 +14,7 @@
 					</span>
                 </div>
 
-                <form class="login100-form validate-form" action="{{ url('/vote/login') }}" method="post">
+                <form class="login100-form validate-form" action="{{ url('/vote/login') }}" method="POST">
                     @csrf
                     @if (session('status'))
                         <div class="alert alert-danger">
@@ -32,13 +32,10 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-						<h5><a  class="ml-3 login100-form-btn" href="/">Home</a></h5>
+						<button class="login100-form-btn">Login</button>
+						<h5><a class="ml-3 login100-form-btn" href="/">Home</a></h5>
 					</div>
                 </form>
-
 			</div>
 		</div>
     </div>

@@ -9,11 +9,18 @@
 
     <title>Vote Area</title>
     <style>
-        .imageClip{
-            width:400px;
-            height: 400px;
-            overflow:hidden;
-        }
+      .bg-darkblue{
+        background-color: #061C30;
+      }
+
+      h3,h4{
+        color: #CCCCCC;
+      }
+      .imageClip{
+        width:400px;
+        height: 400px;
+        overflow:hidden;
+      }
     </style>
   </head>
 
@@ -59,15 +66,3 @@
 
   </body>
 </html>
-
-<style>
-
-  .bg-darkblue{
-    background-color: #061C30;
-  }
-
-  h3,h4{
-    color: #CCCCCC;
-  }
-
-</style>
