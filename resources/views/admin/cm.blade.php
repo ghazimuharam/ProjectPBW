@@ -29,9 +29,9 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Name</th>
-                                                    <th>Date Created</th>
                                                     <th>Image</th>
                                                     <th>Bio</th>
+                                                    <th>Total Vote</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -41,9 +41,9 @@
                                                     <tr>
                                                         <td class="text-center">{{ $i++ }}</td>
                                                         <td class="text-center">{{ $d -> nama }}</td>
-                                                        <td class="text-center">{{ $d -> created_at }}</td>
                                                         <td class="text-center"><img src="{{ url('assets/img/'. $d -> foto) }}" width="120"></td>
                                                         <td>{{ $d -> bio }}</td>
+                                                        <td class="text-center">{{ $d -> total_vote }}</td>
                                                         <td class="text-center">
                                                             <a href="/admin/candidateManagement/ubahCandidate/{{ $d -> id }}" class="btn btn-warning">Change</a>
                                                             <a href="/admin/candidateManagement/hapusCandidate/{{ $d -> id }}" class="btn btn-danger">Remove</a>
