@@ -24,7 +24,7 @@
 
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="nama" class="form-control" placeholder="{{ $data -> nama }}">
+                                            <input type="text" name="nama" class="form-control" value="{{ $data -> nama }}">
                                             @if($errors->has('nama'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('nama')}}
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Bio</label>
-                                            <input type="text" name="bio" class="form-control" placeholder="{{ $data -> bio }}">
+                                            <input type="text" name="bio" class="form-control" value="{{ $data -> bio }}">
                                             @if($errors->has('bio'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('bio')}}

@@ -24,7 +24,7 @@
 
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="{{ $data -> name }}">
+                                            <input type="text" name="name" class="form-control" value="{{ $data -> name }}">
                                             @if($errors->has('name'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('namr')}}
@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Uniquecode</label>
-                                            <input type="text" name="uniquecode" class="form-control" placeholder="{{ $data -> uniquecode }}">
+                                            <input type="text" name="uniquecode" class="form-control" value="{{ $data -> uniquecode }}">
                                             @if($errors->has('uniquecode'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('uniquecode')}}
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <input type="text" name="status" class="form-control" placeholder="{{ $data -> status }}">
+                                            <input type="text" name="status" class="form-control" value="{{ $data -> status }}">
                                             @if($errors->has('status'))
                                                 <div class="text-danger">
                                                     {{ $errors->first('status')}}
