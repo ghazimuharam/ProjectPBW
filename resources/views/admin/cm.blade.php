@@ -40,7 +40,7 @@
                                                     <tr>
                                                         <td class="text-center">{{ $i++ }}</td>
                                                         <td class="text-center">{{ $d -> nama }}</td>
-                                                        <td class="text-center"><img src="{{ url('assets/img/'. $d -> foto) }}" width="120"></td>
+                                                        <td class="text-center"><img src="{{ url('assets/img/'. $d -> foto) }}" width="120" height="150"></td>
                                                         <td>{{ $d -> bio }}</td>
                                                         <td class="text-center">{{ $d -> total_vote }}</td>
                                                         <td class="text-center">

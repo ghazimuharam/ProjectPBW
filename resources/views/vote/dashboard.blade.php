@@ -21,9 +21,9 @@
     <section id="Navbar">
       <div class="container-fluid p-0">
         <nav class="navbar navbar-light bg-darkblue justify-content-around">
-          <a class="navbar-brand"  href="{{ url('/') }}"> <h3>Vilection</h3></a>
+          <h2 class="navbar-brand text-white">Vilection</h2>
           <h4>Welcome</h4>
-          <a class="text-secondary" href="{{ url('/vote/logout') }}"><h4>Logout</h4></a>
+          <a class="text-white" href="{{ url('/vote/logout') }}"><h4>Logout</h4></a>
         </nav>
       </div>
    </section>
