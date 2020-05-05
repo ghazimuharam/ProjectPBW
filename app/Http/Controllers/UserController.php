@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 use App\User;
 
 class UserController extends Controller
@@ -16,7 +19,7 @@ class UserController extends Controller
 
     public function tambahUserM(Request $request) {
         $this->validate($request,[
-            'uniquecode' => ['required','integer','between:1,2000','unique:users']
+            'uniquecode' => ['required','integer','between:1,1000','unique:users']
         ]);
         for ($i=0; $i < $request->uniquecode ; $i++){
             User::create([
@@ -34,7 +37,7 @@ class UserController extends Controller
 
     public function submitUserM($id, Request $request) {
         $this->validate($request,[
-            'uniquecode' => ['required','between:1,100']
+            'uniquecode' => ['required','between:1,1000']
          ]);
 
          $data = User::find($id);
@@ -53,5 +56,14 @@ class UserController extends Controller
         $name = $data -> cari;
         $data = DB::table('users') -> where('name', 'like', "%".$name."%") -> get();
         return view('admin.um', ['data' => $data]);
+    }
+
+    public function export() {
+        $data = User::all();
+		return view('admin.um',['data' => $data]);
+    }
+
+    public function export_excel() {
+        return Excel::download(new UserExport, 'User.xlsx');
     }
 }
