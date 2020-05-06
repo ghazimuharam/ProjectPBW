@@ -28,7 +28,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Name</th>
-                                                    <th>Image</th>
+                                                    <th>Picture</th>
                                                     <th>Bio</th>
                                                     <th>Total Vote</th>
                                                     <th>Action</th>
@@ -40,7 +40,9 @@
                                                     <tr>
                                                         <td class="text-center">{{ $i++ }}</td>
                                                         <td class="text-center">{{ $d -> nama }}</td>
-                                                        <td class="text-center"><img src="{{ url('assets/img/'. $d -> foto) }}" width="120" height="150"></td>
+                                                        <td class="text-center"><img src="  @if ($d->foto != null) {{ url('assets/img/'. $d -> foto) }}
+                                                                                            @else {{ url('assets/images/default-profile-pic.png') }} @endif"
+                                                                                            width="120" height="150"></td>
                                                         <td>{{ $d -> bio }}</td>
                                                         <td class="text-center">{{ $d -> total_vote }}</td>
                                                         <td class="text-center">

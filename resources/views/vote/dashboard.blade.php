@@ -47,9 +47,9 @@
      <div class="container text-center">
       <div class="row justify-content-center">
       @foreach($candidate as $c)
-        <div class="col-lg-4 pb-4 d-flex">
-          <div class="card">
-            <img class="bd-placeholder-img card-img-top" width="400" height="400" name="foto" src="@if($c->foto == null) {{ asset('assets\images\default-profile-pic.png') }}
+        <div class="col-lg-4 pb-4 d-flex w-75">
+          <div class="card h">
+            <img class="bd-placeholder-img card-img-top" width="auto" height="300px" name="foto" src="@if($c->foto == null) {{ asset('assets\images\default-profile-pic.png') }}
                           @else {{ asset('assets/img/') }}/{{ $c->foto }} @endif" alt=" {{ $c->nama}}'s picture">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title" name="nama" id="nama"> {{ $c->nama }}</h5>
